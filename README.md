@@ -69,6 +69,9 @@ If this app grows to the point where it needs a more rigid and serious back-end,
 * React (or Angular if React winds up being too much)
 * React Native, if I get to my stretch goals.
 
+## API Endpoints
+...
+
 ## Installation
 ...
 
