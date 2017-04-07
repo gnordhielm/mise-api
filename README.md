@@ -49,7 +49,7 @@ If by some miracle I still need to keep busy next week, I will...
 
 These wireframes represent my first ideas for how users will interface with the application. They also depict some features which show up only in my stretch goals and so are an aspirational guide - not a rigid plan for the app.
 
-![Wireframes](./readme-assets/wireframes.jpg)
+![Wireframes](./readme-assets/wireframes.png)
 
 ## Database Design
 
