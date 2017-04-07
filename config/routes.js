@@ -13,7 +13,7 @@ var recipes = require('../controllers/recipes')
 // Routes
 
 router.route('/')
-	.get(function(req, res) {res.json({message: 'Welcome to the Mise API. Please visit * https://github.com/gnordhielm/mise#api-endpoints * for documentation.'})})
+	.get(function(req, res) {res.json({message: 'Welcome to the Mise API. Please visit * https://github.com/gnordhielm/mise-api#api-endpoints * for documentation.'})})
 
 router.route('/recipes')
   .get(recipes.index)
