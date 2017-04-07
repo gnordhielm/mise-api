@@ -8,13 +8,11 @@
 
 **Topics of interest**
 
-Software that doesn't squash those moments of inspiration. 
-
-Fountain.io - discipline-specific markup languages.
-
-The github for recipes.
-
-Rich information. Pushing the data structures to represent reality. Making the most of mongo.
+* Software that doesn't squash moments of inspiration. 
+* [Fountain.io](https://fountain.io/) - discipline-specific markup languages.
+* The GitHub for recipes. Bringing collaboration to a new medium
+* Rich information. Stretching the rudimentary data structures to better represent reality.
+* Using NoSQL to figure out a schema - then moving to SQL.
 
 My **minimum viable product** will...
 
