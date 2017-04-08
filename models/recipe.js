@@ -1,9 +1,13 @@
 var mongoose = require('mongoose')
 
 var recipeSchema = new mongoose.Schema({
-	name: String,
-	ingredients: String,
-	directions: String
+	title: { type: String, required: true },
+	subtitle: String,
+
+	attribution: String,
+	public: { type: Boolean, default: false },
+
+	body: { type: String, required: true },
 })
 
 var Recipe = mongoose.model('Recipe', recipeSchema)
