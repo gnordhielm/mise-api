@@ -42,7 +42,7 @@ app.use(bodyParser())
 
 // set up routes
 var routes = require('./config/routes')
-app.use('/api/', routes)
+app.use('/', routes)
 
 // listen on port variable
 app.listen(port, function(){
