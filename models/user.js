@@ -9,6 +9,7 @@ var userSchema = new mongoose.Schema({
 	name: { type: String, required: true },
 	email: { type: String, required: true, unique: true },
 	handle: { type: String, required: true, unique: true, maxlength: 15 },
+	is_professional: { type: Boolean, default: false },
 	// password: { type: String, required: true },
 	recipes: [Recipe.schema]
 })
