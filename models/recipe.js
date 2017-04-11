@@ -7,6 +7,7 @@ var recipeSchema = new mongoose.Schema({
 	attribution: String,
 	is_public: { type: Boolean, default: false },
 	is_cml: { type: Boolean, default: false },
+	created_at: Number,
 
 	body: { type: String, required: true },
 })
