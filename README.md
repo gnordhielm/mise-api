@@ -17,10 +17,10 @@ body: String
 
 ## Endpoints
 
-`GET` `https://mise-app.herokuapp.com/api/recipes` - recipes index
-`GET` `https://mise-app.herokuapp.com/api/recipes/:id` - show one recipe
+`GET` `https://mise-api.herokuapp.com/recipes` - recipes index
+`GET` `https://mise-api.herokuapp.com/recipes/:id` - show one recipe
 
-`POST` `https://mise-app.herokuapp.com/api/recipes` - create a recipe
+`POST` `https://mise-api.herokuapp.com/recipes` - create a recipe
 
-`PATCH` `https://mise-app.herokuapp.com/api/recipes/:id` - update a recipe
-`DELETE` `https://mise-app.herokuapp.com/api/recipes/:id` - delete a recipe
+`PATCH` `https://mise-api.herokuapp.com/recipes/:id` - update a recipe
+`DELETE` `https://mise-api.herokuapp.com/recipes/:id` - delete a recipe
