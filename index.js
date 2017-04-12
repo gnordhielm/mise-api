@@ -6,6 +6,7 @@ var express      = require('express'),
     cookieParser = require('cookie-parser'),
     bodyParser   = require('body-parser'),
     session      = require('express-session'),
+    cors         = require('cors')
     port         = process.env.PORT || 3000
 
 // load env variable from .env file
@@ -13,6 +14,9 @@ require('dotenv').config()
 
 // create express app
 var app = express()
+
+// set up cross-origin resource sharing
+app.use(cors())
 
 // set up public directory path and favicon
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')))
