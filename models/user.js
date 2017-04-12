@@ -1,7 +1,7 @@
 var mongoose = require('mongoose'),
-	Recipe = require('./completed_exercise'),
+	Recipe = require('./recipe'),
 	bcrypt = require('bcrypt-nodejs'),
-	uniqueValidator = require('mongoose-unique-validator'),
+	uniqueValidator = require('mongoose-unique-validator')
 
 // it's possible the name "method" isn't the best, we could
 // consider changing it to function or something.
@@ -11,7 +11,7 @@ var userSchema = new mongoose.Schema({
 	handle: { type: String, required: true, unique: true, maxlength: 15 },
 	is_professional: { type: Boolean, default: false },
 	// password: { type: String, required: true },
-	recipes: [Recipe.schema]
+	recipes: [{type: mongoose.Schema.Types.ObjectId, ref: 'Recipe'}]
 })
 
 // Apply the uniqueValidator plugin to userSchema. 

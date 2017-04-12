@@ -2,25 +2,34 @@ var Recipe = require('../models/recipe')
 
 function index(req, res){  
   Recipe.find({}, function(err, recipes) {
-    if (err) throw err
-    res.json(recipes)
+    if (err) {
+      res.json({message: 'Could not retrieve recipes.', error: err})
+    } else {
+      res.json(recipes)
+    }
   })
 }
 
 function inspect(req, res){  
   Recipe.findById(req.params.id, function(err, recipe) {
-    if (err) res.json({message: 'Could not find recipe.', error: err})
-    if (!recipe) res.json({message: 'No such recipe.'})
-
-    res.json(recipe)
+    if (err) {
+      res.json({message: 'Could not find recipe.', error: err})
+    } else if (!recipe) {
+      res.json({message: 'No such recipe.'})
+    } else {
+      res.json(recipe)
+    }
   })
 }
 
 function create(req, res) {
   var recipe = new Recipe(req.body)
   recipe.save(function(err, recipe) {
-    if (err) res.json({message: 'Could not create recipe.', error: err})
-    res.json(recipe)
+    if (err) {
+      res.json({message: 'Could not create recipe.', error: err})
+    } else {
+      res.json(recipe)
+    }
   })
 }
 
@@ -33,16 +42,22 @@ function update(req, res) {
     if (req.body.directions) recipe.directions = req.body.directions
 
     recipe.save(function(err, recipe) {
-      if (err) res.json({message: 'Could not update recipe.', error: err})
-      res.json(recipe)
+      if (err) {
+        res.json({message: 'Could not update recipe.', error: err})
+      } else {
+        res.json(recipe)
+      }
     })
   })
 }
 
 function destroy(req, res){
   Recipe.remove({_id: req.params.id}, function(err) {
-    if (err) res.json({message: 'Could not delete recipe.', error: err})
-    res.json({message: 'Recipe deleted.'})
+    if (err) {
+      res.json({message: 'Could not delete recipe.', error: err})
+    } else {
+      res.json({message: 'Recipe deleted.'})
+    }
   })
 }
 
