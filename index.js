@@ -1,22 +1,22 @@
-var express      = require('express'),
-    mongoose     = require('mongoose'),
-    path         = require('path'),
-    favicon      = require('serve-favicon'),
-    morgan       = require('morgan'),
-    cookieParser = require('cookie-parser'),
-    bodyParser   = require('body-parser'),
-    session      = require('express-session'),
-    cors         = require('cors')
-    port         = process.env.PORT || 3000
+var express      = require('express')
+
+
+var mongoose     = require('mongoose')
+var path         = require('path')
+var favicon      = require('serve-favicon')
+var logger       = require('morgan')
+var cookieParser = require('cookie-parser')
+var bodyParser   = require('body-parser')
+var session      = require('express-session')
+var cors         = require('cors')
+var port         = process.env.PORT || 3000
 
 // load env variable from .env file
 require('dotenv').config()
+// dotenv.load()
 
 // create express app
 var app = express()
-
-// set up cross-origin resource sharing
-app.use(cors())
 
 // set up public directory path and favicon
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')))
@@ -25,11 +25,15 @@ app.use(express.static(__dirname + '/public'))
 // connect to database
 var mongoose = require('./config/database')
 
-// load general middleware
-app.use(morgan('dev'))
-app.use(cookieParser())
-app.use(bodyParser())
+// set up cross-origin resource sharing
+app.use(cors())
 
+// load parsers
+app.use(bodyParser.urlencoded({ extended: true }))
+app.use(bodyParser.json())
+
+// load logger
+app.use(logger('dev'))
 
 // configure passport
 // app.use(session({ secret: 'WHETSTONE-CODE-SHARPENING' }))
@@ -45,8 +49,9 @@ app.use(bodyParser())
 // })
 
 // set up routes
-var routes = require('./config/routes')
-app.use('/', routes)
+app.use('/', require('./config/public_routes'))
+
+app.use('/internal/', require('./config/internal_routes'))
 
 // listen on port variable
 app.listen(port, function(){
