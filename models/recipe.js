@@ -3,6 +3,7 @@ var mongoose = require('mongoose')
 var recipeSchema = new mongoose.Schema({
 	title: { type: String, required: true },
 	subtitle: String,
+	image_url: String,
 
 	attribution: String,
 	is_public: { type: Boolean, default: false },
