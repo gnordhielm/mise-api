@@ -12,18 +12,19 @@ function inspect(req, res){
   })
 }
 
-function create(req, res) {
 
-  var user = new User(req.body)
+// function create(req, res) {
 
-  user.save(function(err, user) {
-    if (err) {
-      res.json({message: 'Could not create user.', error: err})
-    } else {
-      res.json(user)
-    }
-  })
-}
+//   var user = new User(req.body)
+
+//   user.save(function(err, user) {
+//     if (err) {
+//       res.json({message: 'Could not create user.', error: err})
+//     } else {
+//       res.json({success: true, email: user.email, password: user.password})
+//     }
+//   })
+// }
 
 function update(req, res) {
   User.findById(req.params.id, function(err, user) {
@@ -60,7 +61,7 @@ function destroy(req, res){
 
 module.exports = {
   inspect: inspect,  
-  create: create,  
+  // create: create,  
   update: update,  
   destroy: destroy
 }

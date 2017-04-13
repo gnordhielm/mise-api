@@ -1,5 +1,4 @@
 var express      = require('express')
-var mongoose     = require('mongoose')
 var favicon      = require('serve-favicon')
 
 var session      = require('express-session')
@@ -35,30 +34,18 @@ app.use(bodyParser.json())
 // load logger in development
 app.use(logger('dev'))
 
-// configure passport
+// configure and initialize passport with local authentication strategies
 app.use(passport.initialize())
+passport.use('local-signup', require('./authentication/local-signup'))
+passport.use('local-login', require('./authentication/local-login'))
 
-///// Passport - move me out into another file soon
-
-var localSignupStrategy = require('./server/passport/local-signup')
-var localLoginStrategy = require('./server/passport/local-login')
-
-// configure passport
-// app.use(session({ secret: 'WHETSTONE-CODE-SHARPENING' }))
-// app.use(passport.initialize())
-// session implementaion
-// app.use(passport.session())
-
-// Initialize global user variable
-// require('./config/passport')(passport)
-// app.use(function (req, res, next) {
-//   global.user = req.user
-//   next()
-// })
+// protect internal routes
+app.use('/internal', require('./authentication/auth_check'))
 
 // set up routes
-app.use('/', require('./config/public_routes'))
-app.use('/internal/', require('./config/internal_routes'))
+app.use('/', require('./routes/public_routes'))
+app.use('/internal', require('./routes/internal_routes'))
+app.use('/auth', require('./routes/auth_routes'))
 
 // listen on port variable
 app.listen(port, function(){
