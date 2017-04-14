@@ -23,10 +23,10 @@ function inspect(req, res){
 }
 
 function create(req, res) {
-  var recipe = new Recipe(req.body)
+  var recipe = new Recipe(req.body.newRecipe)
   recipe.save(function(err, recipe) {
     if (err) {
-      res.json({message: 'Could not create recipe.', error: err})
+      res.json({error: 'Could not create recipe:' + err})
     } else {
       res.json(recipe)
     }

@@ -6,6 +6,7 @@ var User = require('../models/user')
 
 // import controllers
 var users = require('../controllers/users')
+var recipes = require('../controllers/recipes')
 
 router.post('/', (req, res) => {
   res.status(200).json({
@@ -14,6 +15,7 @@ router.post('/', (req, res) => {
 });
 
 router.post('/user-data', users.inspect)
+router.post('/new-recipe', recipes.create)
 
 
 module.exports = router

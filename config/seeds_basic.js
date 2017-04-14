@@ -29,7 +29,7 @@ var recipes = [
 	},
 	{
 		title: 'Roasted Potatoes and Asparagus',
-		subtitle: 'Healthy and hearty site.',
+		subtitle: 'Healthy and hearty side.',
 		attribution: 'Allrecipes.com',
 		is_public: true,
 		created_at: 12345678,
