@@ -1,13 +1,9 @@
-var express = require('express'),
-    router = express.Router(),
-// Parses information from POST
-    bodyParser = require('body-parser')
-    // ,passport = require("passport")
+var express = require('express')
+var router = express.Router()
+
 
 // Require controllers
 var recipes = require('../controllers/recipes')
-
-// Helpers
 
 
 // Routes
@@ -17,11 +13,8 @@ router.route('/')
 
 router.route('/recipes')
   .get(recipes.index)
-  .post(recipes.create)
 
 router.route('/recipes/:id')
   .get(recipes.inspect)
-  .patch(recipes.update)
-  .delete(recipes.destroy)
 
 module.exports = router

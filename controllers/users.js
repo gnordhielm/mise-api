@@ -1,13 +1,24 @@
+const jwt = require('jsonwebtoken')
 var User = require('../models/user')
 
 function inspect(req, res){  
-  User.findById(req.params.id, function(err, user) {
+
+  User.findById(req.userId, function(err, user) {
     if (err) {
-      res.json({message: 'Could not find user.', error: err})
+      res.json({
+        success:false,
+        error: 'Could not find user: ' + err
+      })
     } else if (!user) { 
-      res.json({message: 'No such user.'})
+      res.json({
+        success:false,
+        error: 'No such user.'
+      })
     } else {
-      res.json(user)
+      res.json({
+        success: true,
+        user: user
+      })
     }
   })
 }

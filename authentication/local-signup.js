@@ -43,7 +43,7 @@ module.exports = new LocalStrategy({
 
 						// generate the JWT
 						var payload = {
-							sub: user._id
+							userId: user._id
 						}
 
 						var token = jwt.sign(payload, process.env.JWT_SECRET)
